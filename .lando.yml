@@ -1,0 +1,7 @@
+name: doctrine-sandbox
+recipe: lemp
+config:
+  webroot: public/
+services:
+  appserver:
+    xdebug: true

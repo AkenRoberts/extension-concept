@@ -1,0 +1,24 @@
+{
+    "name": "aken-sandbox/doctrine",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Aken Roberts",
+            "email": "aken@cryode.com"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.6",
+        "filp/whoops": "^2.2",
+        "lcobucci/clock": "^1.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "symfony/var-dumper": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sandbox\\": "src/"
+        }
+    }
+}
