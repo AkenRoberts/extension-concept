@@ -34,9 +34,6 @@ class Loader implements EventSubscriber
 
     public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs): void
     {
-        $metadata = $eventArgs->getClassMetadata();
-        $class = $metadata->getName();
-
         // Here is where we would grab the appropriate metadata driver
         // (annotation, YAML, etc.) and parse the class, checking for
         // extension metadata.
@@ -50,7 +47,7 @@ class Loader implements EventSubscriber
         // and be generated to include all listeners and modifications for
         // applied extensions.
 
-        $classExtensionMetadata = new ClassExtensionMetadata($class);
+        $classExtensionMetadata = new ClassExtensionMetadata($eventArgs->getClassMetadata());
 
         $timestampable = new TimestampableMetadata();
         $timestampable->addOnCreateField('createdAt');

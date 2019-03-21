@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Sandbox\Common\Metadata;
 
+use Doctrine\Common\Persistence\Mapping\ClassMetadata;
+
 /**
  * The ClassMetadata class holds all of the extension configuration
  * for a specific class.
@@ -11,9 +13,9 @@ namespace Sandbox\Common\Metadata;
 class ClassExtensionMetadata
 {
     /**
-     * @var string
+     * @var ClassMetadata
      */
-    private $class;
+    private $classMetadata;
 
     /**
      * A list of the active Extensions used by this class.
@@ -24,14 +26,14 @@ class ClassExtensionMetadata
      */
     private $extensions = [];
 
-    public function __construct(string $class)
+    public function __construct(ClassMetadata $classMetadata)
     {
-        $this->class = $class;
+        $this->classMetadata = $classMetadata;
     }
 
     public function getClass(): string
     {
-        return $this->class;
+        return $this->classMetadata->getName();
     }
 
     public function addExtension(ExtensionMetadata $metadata): void
